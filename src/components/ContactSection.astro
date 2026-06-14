@@ -1,0 +1,99 @@
+---
+import { Button } from "@/components/starwind/button";
+import { Card, CardContent } from "@/components/starwind/card";
+import { Input } from "@/components/starwind/input";
+import { Label } from "@/components/starwind/label";
+import { Textarea } from "@/components/starwind/textarea";
+---
+
+<section id="contact" class="border-border/60 bg-muted/40 scroll-mt-16 border-t">
+	<div class="mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 sm:py-28 lg:grid-cols-5">
+		<div class="lg:col-span-2" data-reveal>
+			<p class="text-gold-600 dark:text-gold-400 font-mono text-sm tracking-wider">// contact</p>
+			<h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+				Let's build something solid
+			</h2>
+			<p class="text-muted-foreground mt-4 text-lg leading-relaxed">
+				Looking for a senior engineer who can take ownership? Tell me about your project and I will
+				get back to you within one business day.
+			</p>
+			<dl class="mt-8 space-y-4 font-mono text-sm">
+				<div class="flex gap-3">
+					<dt class="text-muted-foreground">email:</dt>
+					<dd>
+						<a href="mailto:steffen@schoonveld-ict.nl" class="hover:text-gold-600 dark:hover:text-gold-400 transition-colors">
+							steffen@schoonveld-ict.nl
+						</a>
+					</dd>
+				</div>
+				<div class="flex gap-3">
+					<dt class="text-muted-foreground">based in:</dt>
+					<dd>Haren, the Netherlands</dd>
+				</div>
+			</dl>
+		</div>
+
+		<div class="lg:col-span-3" data-reveal style="--reveal-delay: 150ms">
+			<Card>
+				<CardContent class="pt-6">
+					<form id="contact-form" class="grid gap-5 sm:grid-cols-2" novalidate>
+						<div class="flex flex-col gap-2">
+							<Label for="name">Name</Label>
+							<Input id="name" name="name" type="text" placeholder="Your name" required />
+						</div>
+						<div class="flex flex-col gap-2">
+							<Label for="email">Email</Label>
+							<Input id="email" name="email" type="email" placeholder="you@company.com" required />
+						</div>
+						<div class="flex flex-col gap-2 sm:col-span-2">
+							<Label for="company">Company <span class="text-muted-foreground font-normal">(optional)</span></Label>
+							<Input id="company" name="company" type="text" placeholder="Your company" />
+						</div>
+						<div class="flex flex-col gap-2 sm:col-span-2">
+							<Label for="message">Message</Label>
+							<Textarea
+								id="message"
+								name="message"
+								placeholder="What would you like to build?"
+								rows={5}
+								required
+							/>
+						</div>
+						<div class="sm:col-span-2">
+							<Button type="submit" variant="primary" size="lg" class="w-full sm:w-auto">
+								Send message
+							</Button>
+						</div>
+					</form>
+					<div id="contact-success" class="hidden py-10 text-center" aria-live="polite">
+						<p class="text-gold-600 dark:text-gold-400 font-mono text-sm">// message received</p>
+						<p class="mt-3 text-xl font-bold">Thanks for reaching out!</p>
+						<p class="text-muted-foreground mt-2">
+							I will get back to you within one business day.
+						</p>
+					</div>
+				</CardContent>
+			</Card>
+		</div>
+	</div>
+</section>
+
+<script>
+	function setupContactForm() {
+		const form = document.getElementById("contact-form") as HTMLFormElement | null;
+		const success = document.getElementById("contact-success");
+		if (!form || !success) return;
+
+		form.addEventListener("submit", (event) => {
+			event.preventDefault();
+			if (!form.reportValidity()) return;
+
+			// No backend yet — show the confirmation state only.
+			form.classList.add("hidden");
+			success.classList.remove("hidden");
+		});
+	}
+
+	setupContactForm();
+	document.addEventListener("astro:page-load", setupContactForm);
+</script>

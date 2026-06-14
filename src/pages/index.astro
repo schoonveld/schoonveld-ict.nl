@@ -1,17 +1,136 @@
 ---
+import Layout from "@/layouts/Layout.astro";
+import ContactSection from "@/components/ContactSection.astro";
+import { Badge } from "@/components/starwind/badge";
+import { Button } from "@/components/starwind/button";
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from "@/components/starwind/card";
 
+const services = [
+	{
+		title: "Full-Stack Development",
+		description: "From backend to browser",
+		body: "Deep expertise in Java and the Spring framework, combined with modern frontends in TypeScript, React and Angular. Elegant, maintainable solutions — even when the problem is complex.",
+		tags: ["Java", "Spring", "TypeScript", "React", "Angular"],
+	},
+	{
+		title: "Team & Technical Leadership",
+		description: "Direction for development teams",
+		body: "Experienced team lead and certified Scrum Master. Comfortable steering a development team, making architectural decisions and keeping stakeholders aligned.",
+		tags: ["Team Lead", "Architecture", "Scrum", "Stakeholders"],
+	},
+	{
+		title: "Cloud & DevOps",
+		description: "Built to run reliably",
+		body: "Cloud-native development with Docker, Kubernetes and Helm, backed by solid CI/CD pipelines and automated testing. Software that ships fast and stays stable in production.",
+		tags: ["Kubernetes", "Docker", "CI/CD", "DevOps"],
+	},
+];
+
+const clients = ["DUO", "Dataprovider.com", "ING Bank", "TKP Pensioen", "KPN"];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Schoonveld ICT — Freelance Software Engineering">
+	<!-- Hero -->
+	<section class="relative overflow-hidden">
+		<div class="pointer-events-none absolute inset-y-0 right-0 w-full select-none lg:w-[62%]">
+			<img
+				src="/hero-image.jpg"
+				alt="Steffen Schoonveld, freelance software engineer"
+				class="h-full w-full object-cover object-right opacity-25 [mask-image:linear-gradient(to_right,transparent_5%,black_60%)] lg:opacity-100"
+			/>
+		</div>
+
+		<div class="relative mx-auto flex min-h-[calc(100svh-12rem)] max-w-6xl items-center px-4 py-20 sm:px-6">
+			<div class="max-w-xl">
+				<p
+					class="animate-fade-up text-gold-600 dark:text-gold-400 font-mono text-sm tracking-wider"
+				>
+					~/schoonveld-ict <span class="text-muted-foreground">$ freelance software engineering</span>
+				</p>
+				<h1
+					class="animate-fade-up mt-5 text-4xl leading-tight font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl"
+					style="animation-delay: 100ms"
+				>
+					Senior engineering for software that <span class="text-gold-600 dark:text-gold-400"
+						>lasts</span
+					>.
+				</h1>
+				<p
+					class="animate-fade-up text-muted-foreground mt-6 text-lg leading-relaxed"
+					style="animation-delay: 200ms"
+				>
+					Schoonveld ICT is the freelance practice of Steffen Schoonveld — senior full-stack
+					engineer with 15+ years of experience building Java &amp; Spring platforms, modern web
+					frontends and cloud-native systems for organisations that depend on them.
+				</p>
+				<div class="animate-fade-up mt-10 flex flex-wrap gap-4" style="animation-delay: 300ms">
+					<Button href="#contact" variant="primary" size="lg">Start a conversation</Button>
+					<Button href="/resume" variant="outline" size="lg">View resume</Button>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Trusted by -->
+	<section class="border-border/60 border-y">
+		<div class="mx-auto max-w-6xl px-4 py-8 sm:px-6" data-reveal>
+			<p class="text-muted-foreground text-center font-mono text-xs tracking-widest uppercase">
+				Trusted by
+			</p>
+			<ul class="mt-5 flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
+				{
+					clients.map((client) => (
+						<li class="text-muted-foreground font-mono text-sm sm:text-base">{client}</li>
+					))
+				}
+			</ul>
+		</div>
+	</section>
+
+	<!-- Services -->
+	<section class="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28">
+		<div class="max-w-2xl" data-reveal>
+			<p class="text-gold-600 dark:text-gold-400 font-mono text-sm tracking-wider">// what I do</p>
+			<h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+				One engineer, end-to-end ownership
+			</h2>
+			<p class="text-muted-foreground mt-4 text-lg">
+				Whether it is building new features, migrating legacy systems or leading a team — I take
+				responsibility for the result, not just the code.
+			</p>
+		</div>
+
+		<div class="mt-12 grid gap-6 md:grid-cols-3">
+			{
+				services.map((service, index) => (
+					<div data-reveal style={`--reveal-delay: ${index * 120}ms`}>
+						<Card class="hover:border-gold-500/50 h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+							<CardHeader>
+								<CardTitle>{service.title}</CardTitle>
+								<CardDescription class="font-mono text-xs">{service.description}</CardDescription>
+							</CardHeader>
+							<CardContent class="flex h-full flex-col gap-5">
+								<p class="text-muted-foreground leading-relaxed">{service.body}</p>
+								<div class="mt-auto flex flex-wrap gap-2">
+									{service.tags.map((tag) => (
+										<Badge variant="secondary" class="font-mono text-xs">
+											{tag}
+										</Badge>
+									))}
+								</div>
+							</CardContent>
+						</Card>
+					</div>
+				))
+			}
+		</div>
+	</section>
+
+	<ContactSection />
+</Layout>

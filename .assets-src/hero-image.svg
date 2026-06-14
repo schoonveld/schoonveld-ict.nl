@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1600" viewBox="0 0 1600 1600">
+  <!-- composed for a 1600x1200 centre crop: visible band is y = 200..1400 -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1B2230"/>
+      <stop offset="0.55" stop-color="#222B3C"/>
+      <stop offset="1" stop-color="#2C3850"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.64" cy="0.45" r="0.5">
+      <stop offset="0" stop-color="#C9984A" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#C9984A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="person" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#46546E"/>
+      <stop offset="1" stop-color="#333E54"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="1600" fill="url(#bg)"/>
+
+  <!-- subtle grid -->
+  <g stroke="#8FA0BC" stroke-opacity="0.08" stroke-width="2">
+    <path d="M200 0V1600M400 0V1600M600 0V1600M800 0V1600M1000 0V1600M1200 0V1600M1400 0V1600"/>
+    <path d="M0 200H1600M0 400H1600M0 600H1600M0 800H1600M0 1000H1600M0 1200H1600M0 1400H1600"/>
+  </g>
+
+  <rect width="1600" height="1600" fill="url(#glow)"/>
+
+  <!-- code motif -->
+  <g font-family="Menlo, monospace" font-size="44" fill="#C9984A" fill-opacity="0.5">
+    <text x="700" y="420">&lt;/&gt;</text>
+    <text x="320" y="1080" fill="#8FA0BC" fill-opacity="0.35">{ }</text>
+    <text x="540" y="780" fill="#8FA0BC" fill-opacity="0.3">=&gt;</text>
+  </g>
+
+  <!-- person silhouette, kept right-of-centre so the left fade never touches it -->
+  <g transform="translate(1040,940)">
+    <circle cx="0" cy="-230" r="135" fill="url(#person)"/>
+    <path d="M-270 460 C-270 160 -155 40 0 40 C155 40 270 160 270 460 Z" fill="url(#person)"/>
+    <path d="M-60 60 L0 150 L60 60" stroke="#C9984A" stroke-opacity="0.65" stroke-width="10" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- placeholder label -->
+  <text x="1040" y="1360" font-family="Menlo, monospace" font-size="30" fill="#8FA0BC" fill-opacity="0.55" text-anchor="middle">placeholder — replace with hero-image.jpg</text>
+</svg>
