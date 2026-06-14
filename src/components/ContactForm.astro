@@ -1,0 +1,63 @@
+---
+import { Button } from "@/components/starwind/button";
+import { Input } from "@/components/starwind/input";
+import { Label } from "@/components/starwind/label";
+import { Textarea } from "@/components/starwind/textarea";
+---
+
+<form id="contact-form" class="grid gap-5 sm:grid-cols-2" novalidate>
+	<div class="flex flex-col gap-2">
+		<Label for="name">Name</Label>
+		<Input id="name" name="name" type="text" placeholder="Your name" required />
+	</div>
+	<div class="flex flex-col gap-2">
+		<Label for="email">Email</Label>
+		<Input id="email" name="email" type="email" placeholder="you@company.com" required />
+	</div>
+	<div class="flex flex-col gap-2 sm:col-span-2">
+		<Label for="company">Company <span class="text-muted-foreground font-normal">(optional)</span></Label>
+		<Input id="company" name="company" type="text" placeholder="Your company" />
+	</div>
+	<div class="flex flex-col gap-2 sm:col-span-2">
+		<Label for="message">Message</Label>
+		<Textarea
+			id="message"
+			name="message"
+			placeholder="What would you like to build?"
+			rows={5}
+			required
+		/>
+	</div>
+	<div class="sm:col-span-2">
+		<Button type="submit" variant="primary" size="lg" class="w-full sm:w-auto">
+			Send message
+		</Button>
+	</div>
+</form>
+<div id="contact-success" class="hidden py-10 text-center" aria-live="polite">
+	<p class="text-gold-600 dark:text-gold-400 font-mono text-sm">// message received</p>
+	<p class="mt-3 text-xl font-bold">Thanks for reaching out!</p>
+	<p class="text-muted-foreground mt-2">
+		I will get back to you within one business day.
+	</p>
+</div>
+
+<script>
+	function setupContactForm() {
+		const form = document.getElementById("contact-form") as HTMLFormElement | null;
+		const success = document.getElementById("contact-success");
+		if (!form || !success) return;
+
+		form.addEventListener("submit", (event) => {
+			event.preventDefault();
+			if (!form.reportValidity()) return;
+
+			// No backend yet — show the confirmation state only.
+			form.classList.add("hidden");
+			success.classList.remove("hidden");
+		});
+	}
+
+	setupContactForm();
+	document.addEventListener("astro:page-load", setupContactForm);
+</script>
