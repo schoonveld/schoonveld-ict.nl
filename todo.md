@@ -1,8 +1,10 @@
-- [ ] Fix Logo
-- [ ] Modify them
-- [ ] Fix Typography for hero section
-- [ ] Add Eslint config
-- [ ] Add ShadCN and find out how Starwind UI and ShadCN can use the same theme
-- [ ] Refactor contact form to client React island using ShadCN components
-- [ ] Add Cloudflare Turnstile widget to contact form
+- [x] Add clientside validation to for input fields width validation errro styling
 - [ ] Add server action that send a request to Resend API with sumitted values from contact form
+- [ ] Add Cloudflare Turnstile widget to contact form
+- [ ] Modify text content
+- [ ] Fix Typography for hero section
+- [x] Fix Logo
+- [ ] Modify theme: customize colors. Mind contrast for better visibility.
+- [ ] Add Eslint config
+- [x] Add ShadCN and find out how Starwind UI and ShadCN can use the same theme
+- [x] Refactor contact form to client React island using ShadCN components

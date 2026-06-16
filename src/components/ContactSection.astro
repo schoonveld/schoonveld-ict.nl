@@ -1,6 +1,6 @@
 ---
 import { Card, CardContent } from "@/components/starwind/card";
-import ContactForm from "@/components/ContactForm.astro";
+import ContactForm from "@/components/ContactForm";
 ---
 
 <section id="contact" class="border-border/60 bg-muted/40 scroll-mt-16 border-t">
@@ -33,7 +33,7 @@ import ContactForm from "@/components/ContactForm.astro";
 		<div class="lg:col-span-3" data-reveal style="--reveal-delay: 150ms">
 			<Card>
 				<CardContent class="pt-6">
-					<ContactForm />
+					<ContactForm client:only="react" />
 				</CardContent>
 			</Card>
 		</div>
