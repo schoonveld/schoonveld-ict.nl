@@ -1,10 +1,15 @@
+### MVP
 - [x] Add clientside validation to for input fields width validation errro styling
-- [ ] Add server action that send a request to Resend API with sumitted values from contact form
-- [ ] Add Cloudflare Turnstile widget to contact form
-- [ ] Modify text content
-- [ ] Fix Typography for hero section
-- [x] Fix Logo
-- [ ] Modify theme: customize colors. Mind contrast for better visibility.
-- [ ] Add Eslint config
 - [x] Add ShadCN and find out how Starwind UI and ShadCN can use the same theme
 - [x] Refactor contact form to client React island using ShadCN components
+- [x] Fix Logo
+- [x] Add server action that send a request to Resend API with sumitted values from contact form
+- [x] Add Cloudflare Turnstile widget to contact form
+- [ ] Modify text content
+- [ ] Navigation mbile friendly
+-----------------------------------------
+- [ ] Fix Typography for hero section
+- [ ] i8n
+- [ ] Modify theme: customize colors. Mind contrast for better visibility.
+- [ ] Add Eslint config
+- [ ] Build CV pdf dynamically from markdown files at build stageß

@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__starwind-ui__starwind_init",
+      "mcp__starwind-ui__starwind_add",
+      "Bash(npx starwind@latest add button input textarea label card badge theme-toggle separator --yes)",
+      "Bash(qlmanage -t -s 1600 -o .assets-src .assets-src/hero-image.svg)",
+      "Bash(sips -s format jpeg -s formatOptions 85 .assets-src/hero-image.svg.png --out public/hero-image.jpg)",
+      "Bash(sips -g pixelWidth -g pixelHeight public/hero-image.jpg)",
+      "Bash(sips -c 1200 1600 public/hero-image.jpg --out public/hero-image.jpg)",
+      "Bash(npx -y playwright@latest --version)",
+      "Bash(npx astro *)",
+      "Bash(npx -y playwright@latest screenshot --viewport-size=1440,900 --full-page http://localhost:4321/ /tmp/home-light.png)",
+      "Bash(npx -y playwright@latest screenshot --viewport-size=1440,900 --full-page http://localhost:4321/resume /tmp/resume-light.png)",
+      "Bash(npx -y playwright@latest install chromium)",
+      "Bash(npx -y playwright@latest screenshot --viewport-size=1440,900 --wait-for-timeout=2500 --full-page http://localhost:4321/ /tmp/home-light.png)",
+      "Bash(npx -y playwright@latest screenshot --viewport-size=1440,900 --wait-for-timeout=2500 --full-page http://localhost:4321/resume /tmp/resume-light.png)",
+      "Bash(npm i *)",
+      "Bash(node *)",
+      "Bash(npm run *)",
+      "Bash(python3 -c ' *)"
+    ]
+  },
+  "enabledMcpjsonServers": [
+    "shadcn"
+  ]
+}

@@ -1,22 +1,29 @@
 ---
 import { Card, CardContent } from "@/components/starwind/card";
 import ContactForm from "@/components/ContactForm";
+import type { UiTranslations } from "@/lib/i18n";
+
+interface Props {
+	t: Pick<UiTranslations, "contact" | "form">;
+	siteKey: string;
+}
+
+const { t, siteKey } = Astro.props;
 ---
 
 <section id="contact" class="border-border/60 bg-muted/40 scroll-mt-16 border-t">
 	<div class="mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 sm:py-28 lg:grid-cols-5">
 		<div class="lg:col-span-2" data-reveal>
-			<p class="text-gold-600 dark:text-gold-400 font-mono text-sm tracking-wider">// contact</p>
+			<p class="text-gold-600 dark:text-gold-400 font-mono text-sm tracking-wider">{t.contact.eyebrow}</p>
 			<h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
-				Let's build something solid
+				{t.contact.title}
 			</h2>
 			<p class="text-muted-foreground mt-4 text-lg leading-relaxed">
-				Looking for a senior engineer who can take ownership? Tell me about your project and I will
-				get back to you within one business day.
+				{t.contact.description}
 			</p>
 			<dl class="mt-8 space-y-4 font-mono text-sm">
 				<div class="flex gap-3">
-					<dt class="text-muted-foreground">email:</dt>
+					<dt class="text-muted-foreground">{t.contact.emailLabel}</dt>
 					<dd>
 						<a href="mailto:steffen@schoonveld-ict.nl" class="hover:text-gold-600 dark:hover:text-gold-400 transition-colors">
 							steffen@schoonveld-ict.nl
@@ -24,8 +31,8 @@ import ContactForm from "@/components/ContactForm";
 					</dd>
 				</div>
 				<div class="flex gap-3">
-					<dt class="text-muted-foreground">based in:</dt>
-					<dd>Haren, the Netherlands</dd>
+					<dt class="text-muted-foreground">{t.contact.basedInLabel}</dt>
+					<dd>{t.contact.location}</dd>
 				</div>
 			</dl>
 		</div>
@@ -33,7 +40,7 @@ import ContactForm from "@/components/ContactForm";
 		<div class="lg:col-span-3" data-reveal style="--reveal-delay: 150ms">
 			<Card>
 				<CardContent class="pt-6">
-					<ContactForm client:only="react" />
+					<ContactForm client:only="react" siteKey={siteKey} translations={t.form} />
 				</CardContent>
 			</Card>
 		</div>

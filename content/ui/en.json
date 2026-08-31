@@ -1,0 +1,59 @@
+{
+    "meta": {
+        "description": "Schoonveld ICT — freelance software engineering by Steffen Schoonveld. Senior full-stack development, team leadership and cloud-native solutions."
+    },
+    "navigation": {
+        "home": "Home",
+        "resume": "Resume",
+        "cta": "Get in touch",
+        "switchLocale": "NL"
+    },
+    "hero": {
+        "eyebrow": "~/schoonveld-ict $ full-stack software engineering",
+        "title": "Hi, I'm Steffen Schoonveld",
+        "description": "As an experienced senior engineer, I help companies and teams build cloud-native software and modernize existing systems — from strategic advice to hands-on implementation.",
+        "ctaPrimary": "Start a conversation",
+        "ctaSecondary": "View resume"
+    },
+    "contact": {
+        "eyebrow": "// contact",
+        "title": "Let's build something solid",
+        "description": "Looking for a senior engineer who can take ownership? Tell me about your project and I will get back to you within one business day.",
+        "emailLabel": "email:",
+        "basedInLabel": "based in:",
+        "location": "Haren, the Netherlands"
+    },
+    "form": {
+        "name": "Name",
+        "namePlaceholder": "Your name",
+        "nameError": "Please enter your name",
+        "email": "Email",
+        "emailPlaceholder": "you@company.com",
+        "emailError": "Please enter a valid email",
+        "company": "Company",
+        "companyPlaceholder": "Your company",
+        "companyError": "Please enter your company",
+        "message": "Message",
+        "messagePlaceholder": "What would you like to build?",
+        "messageError": "Please enter your message",
+        "submit": "Send message",
+        "successEyebrow": "// message received",
+        "successHeading": "Thanks for reaching out!",
+        "successBody": "I will get back to you within one business day.",
+        "errorEyebrow": "// error",
+        "errorHeading": "Something went wrong",
+        "errorBody": "An unexpected error occurred while sending your request. Please try again later."
+    },
+    "resume": {
+        "downloadCta": "Download resume (PDF)",
+        "workEyebrow": "// work experience",
+        "workTitle": "Work Experience",
+        "educationEyebrow": "// education",
+        "educationTitle": "Education",
+        "certEyebrow": "// certifications",
+        "certTitle": "Training & Certification"
+    },
+    "footer": {
+        "copy": "Freelance software engineering"
+    }
+}

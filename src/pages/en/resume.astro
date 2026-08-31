@@ -8,13 +8,13 @@ import { getUiTranslations } from "@/lib/i18n";
 
 const t = await getUiTranslations(Astro.currentLocale);
 
-const introEntry = (await getCollection("resumeIntroNl"))[0];
+const introEntry = (await getCollection("resumeIntroEn"))[0];
 const { Content: IntroContent } = await render(introEntry);
 
 const parseDate = (value: string) =>
 	value.toLowerCase() === "present" ? Date.now() : Date.parse(value);
 
-const entries = (await getCollection("resumeNl")).sort(
+const entries = (await getCollection("resumeEn")).sort(
 	(a, b) => parseDate(b.data.from) - parseDate(a.data.from),
 );
 
@@ -41,7 +41,7 @@ const skills = [
 const education = [
 	{
 		school: "Hanzehogeschool Groningen",
-		degree: "BSc — Informatica & Communicatietechnologie",
+		degree: "BSc — Information and Communication Technology",
 		year: "2007",
 	},
 	{
@@ -52,16 +52,16 @@ const education = [
 ];
 
 const certifications = [
-	{ name: "Certified Scrum Master", detail: "Certificaat behaald" },
-	{ name: "Elasticsearch Engineer", detail: "Certificaat van deelname" },
+	{ name: "Certified Scrum Master", detail: "Certification obtained" },
+	{ name: "Elasticsearch Engineer", detail: "Certificate of participation" },
 ];
 ---
 
 <Layout
-	title="CV — Steffen Schoonveld | Schoonveld ICT"
-	description="CV van Steffen Schoonveld, senior full-stack software engineer: 15+ jaar ervaring met Java, Spring, TypeScript en cloud-native development."
+	title="Resume — Steffen Schoonveld | Schoonveld ICT"
+	description="Resume of Steffen Schoonveld, senior full-stack software engineer: 15+ years of Java, Spring, TypeScript and cloud-native experience."
 	t={t}
-	locale={Astro.currentLocale ?? "nl"}
+	locale={Astro.currentLocale ?? "en"}
 >
 	<!-- Intro -->
 	<section class="mx-auto max-w-4xl px-4 pt-16 pb-12 sm:px-6">
@@ -102,9 +102,9 @@ const certifications = [
 	<!-- Work experience timeline -->
 	<section class="mx-auto max-w-4xl px-4 py-12 sm:px-6">
 		<div data-reveal>
-			<!-- <p class="text-gold-600 dark:text-gold-400 font-mono text-sm tracking-wider">
+			<p class="text-gold-600 dark:text-gold-400 font-mono text-sm tracking-wider">
 				{t.resume.workEyebrow}
-			</p> -->
+			</p>
 			<h2 class="mt-3 text-3xl font-bold tracking-tight">{t.resume.workTitle}</h2>
 		</div>
 
