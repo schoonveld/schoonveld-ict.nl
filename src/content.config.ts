@@ -1,19 +1,6 @@
 import { glob } from "astro/loaders";
 import { defineCollection } from "astro:content";
-import { z } from "astro/zod";
-
-const resumeSchema = z.object({
-	from: z.string(),
-	until: z.string(),
-	company: z.string(),
-	"job-title": z.string(),
-});
-
-const resumeIntroSchema = z.object({
-	eyebrow: z.string(),
-	title: z.string(),
-	subtitle: z.string(),
-});
+import { z } from "astro/zod"
 
 const uiSchema = z.object({
 	meta: z.object({
@@ -75,29 +62,9 @@ const uiSchema = z.object({
 	}),
 });
 
-const resumeEn = defineCollection({
-	loader: glob({ pattern: "*.md", base: "./resume/en/experience" }),
-	schema: resumeSchema,
-});
-
-const resumeNl = defineCollection({
-	loader: glob({ pattern: "*.md", base: "./resume/nl/experience" }),
-	schema: resumeSchema,
-});
-
-const resumeIntroEn = defineCollection({
-	loader: glob({ pattern: "*.md", base: "./resume/en/intro" }),
-	schema: resumeIntroSchema,
-});
-
-const resumeIntroNl = defineCollection({
-	loader: glob({ pattern: "*.md", base: "./resume/nl/intro" }),
-	schema: resumeIntroSchema,
-});
-
 const ui = defineCollection({
 	loader: glob({ pattern: "*.json", base: "./content/ui" }),
 	schema: uiSchema,
 });
 
-export const collections = { ui, resumeEn, resumeNl, resumeIntroEn, resumeIntroNl };
+export const collections = { ui };

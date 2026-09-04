@@ -12,7 +12,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^13.7.0",
+    "my-first-worker": "file:../my-first-worker",
     "@astrojs/react": "^5.0.7",
     "@fontsource-variable/jetbrains-mono": "^5.2.8",
     "@radix-ui/react-label": "^2.1.9",
@@ -27,7 +27,6 @@
     "clsx": "^2.1.1",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
-    "resend": "^6.12.4",
     "tailwind-merge": "^3.6.0",
     "tailwind-variants": "^3.2.2",
     "tailwindcss": "^4.3.0",

@@ -47,5 +47,5 @@ const locale = Astro.currentLocale ?? "en";
 		</div>
 	</section>
 
-	<ContactSection t={{ contact: t.contact, form: t.form }} siteKey={import.meta.env.TURNSTILE_SITE_KEY} />
+	<ContactSection t={{ contact: t.contact, form: t.form }} siteKey={import.meta.env.TURNSTILE_SITE_KEY} apiUrl={import.meta.env.CONTACT_API_URL} />
 </Layout>

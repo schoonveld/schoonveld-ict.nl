@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { actions } from "astro:actions";
+import { contactSchema, type ContactFormInput } from "my-first-worker";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -31,6 +31,7 @@ interface FormTranslations {
 
 interface ContactFormProps {
 	siteKey: string;
+	apiUrl: string;
 	translations: FormTranslations;
 }
 
@@ -56,7 +57,7 @@ function loadTurnstileScript(onReady: () => void) {
 	document.head.appendChild(script);
 }
 
-export default function ContactForm({ siteKey, translations: t }: ContactFormProps) {
+export default function ContactForm({ siteKey, apiUrl, translations: t }: ContactFormProps) {
 	const [status, setStatus] = useState<Status>("idle");
 	const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
 	const turnstileContainerRef = useRef<HTMLDivElement>(null);
@@ -87,9 +88,34 @@ export default function ContactForm({ siteKey, translations: t }: ContactFormPro
 		if (!e.currentTarget.reportValidity()) return;
 		if (!turnstileToken) return;
 
+		const formData = new FormData(e.currentTarget);
+		const candidate: ContactFormInput = {
+			name: String(formData.get("name") ?? ""),
+			email: String(formData.get("email") ?? ""),
+			company: String(formData.get("company") ?? ""),
+			message: String(formData.get("message") ?? ""),
+			"cf-turnstile-response": turnstileToken,
+		};
+
+		const parsed = contactSchema.safeParse(candidate);
+		if (!parsed.success) {
+			setStatus("error");
+			window.turnstile?.reset(widgetIdRef.current ?? undefined);
+			setTurnstileToken(null);
+			return;
+		}
+
 		setStatus("submitting");
-		const { error } = await actions.contactAction(new FormData(e.currentTarget));
-		setStatus(error ? "error" : "success");
+		try {
+			const response = await fetch(apiUrl, {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify(parsed.data),
+			});
+			setStatus(response.ok ? "success" : "error");
+		} catch {
+			setStatus("error");
+		}
 		window.turnstile?.reset(widgetIdRef.current ?? undefined);
 		setTurnstileToken(null);
 	}

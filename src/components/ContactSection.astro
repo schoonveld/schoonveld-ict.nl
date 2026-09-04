@@ -6,9 +6,10 @@ import type { UiTranslations } from "@/lib/i18n";
 interface Props {
 	t: Pick<UiTranslations, "contact" | "form">;
 	siteKey: string;
+	apiUrl: string;
 }
 
-const { t, siteKey } = Astro.props;
+const { t, siteKey, apiUrl } = Astro.props;
 ---
 
 <section id="contact" class="border-border/60 bg-muted/40 scroll-mt-16 border-t">
@@ -40,7 +41,7 @@ const { t, siteKey } = Astro.props;
 		<div class="lg:col-span-3" data-reveal style="--reveal-delay: 150ms">
 			<Card>
 				<CardContent class="pt-6">
-					<ContactForm client:only="react" siteKey={siteKey} translations={t.form} />
+					<ContactForm client:only="react" siteKey={siteKey} apiUrl={apiUrl} translations={t.form} />
 				</CardContent>
 			</Card>
 		</div>
