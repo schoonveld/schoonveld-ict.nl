@@ -39,7 +39,7 @@ const currentLocaleName = locales.find((l) => l.code === locale)?.label ?? local
 				class="text-foreground size-9 transition-transform duration-300 group-hover:-rotate-6"
 			/>
 			<span class="text-lg md:text-2xl font-bold tracking-tight">
-				Schoonveld <span class="text-gold-600 dark:text-gold-400">ICT</span>
+				Schoonveld <span class="text-primary dark:text-primary">ICT</span>
 			</span>
 		</a>
 
@@ -89,7 +89,7 @@ const currentLocaleName = locales.find((l) => l.code === locale)?.label ?? local
 			</details>
 
 			<ThemeToggle transition:persist />
-			<Button href={getRelativeLocaleUrl(locale, "/#contact")} variant="primary" size="sm" class="ml-1 hidden sm:inline-flex">
+			<Button href="#contact" variant="primary" size="sm" class="ml-1 hidden sm:inline-flex">
 				{t.cta}
 			</Button>
 		</nav>

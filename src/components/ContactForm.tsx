@@ -123,7 +123,7 @@ export default function ContactForm({ siteKey, apiUrl, translations: t }: Contac
 	if (status === "success") {
 		return (
 			<div className="py-10 text-center" aria-live="polite">
-				<p className="font-mono text-sm text-gold-600 dark:text-gold-400">
+				<p className="font-mono text-sm text-rose-700 dark:text-rose-400">
 					{t.successEyebrow}
 				</p>
 				<p className="mt-3 text-xl font-bold">{t.successHeading}</p>
