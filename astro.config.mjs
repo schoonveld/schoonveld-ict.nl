@@ -2,10 +2,11 @@
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
+import resumePdf from './src/integrations/resume-pdf.mjs';
 
 // https://astro.build/config
 export default defineConfig({
-	integrations: [react()],
+	integrations: [react(), resumePdf()],
 	i18n: {
 		defaultLocale: 'nl',
 		locales: ['nl', 'en'],
