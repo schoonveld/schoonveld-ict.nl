@@ -1,0 +1,29 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import Logo from "./logo.astro";
+
+interface Props {
+	t: { copy: string };
+	locale: string;
+}
+
+const { t, locale } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<footer class="border-border/60 border-t">
+	<div
+		class="text-muted-foreground mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 py-8 text-sm sm:flex-row sm:px-6"
+	>
+		<div class="flex items-center gap-3">
+			<Logo class="text-foreground size-7" />
+			<span>
+				© {year} Schoonveld ICT B.V.
+			</span>
+		</div>
+		<div class="flex items-center gap-6 font-mono text-xs">
+			<a href={getRelativeLocaleUrl(locale, "/resume")} class="hover:text-foreground transition-colors">Resume</a>
+			<a href={`${getRelativeLocaleUrl(locale, "/")}#contact`} class="hover:text-foreground transition-colors">Contact</a>
+		</div>
+	</div>
+</footer>

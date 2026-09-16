@@ -1,0 +1,198 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { Button } from "@/components/starwind/button";
+import { ThemeToggle } from "@/components/starwind/theme-toggle";
+import Logo from "./logo.astro";
+import WorldIcon from "./icons/WorldIcon.astro";
+import ChevronDownIcon from "./icons/ChevronDownIcon.astro";
+import MenuIcon from "./icons/MenuIcon.astro";
+import XIcon from "./icons/XIcon.astro";
+
+interface Props {
+	t: { home: string; resume: string; cta: string; switchLocale: string };
+	locale: string;
+}
+
+const { t, locale } = Astro.props;
+
+const links = [
+	{ href: getRelativeLocaleUrl(locale, "/"), label: t.home },
+	{ href: getRelativeLocaleUrl(locale, "/resume"), label: t.resume },
+];
+
+const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
+
+const pathWithoutLocale = currentPath.replace(/^\/en/, "") || "/";
+
+const locales = [
+	{ code: "nl", label: "Nederlands", url: getRelativeLocaleUrl("nl", pathWithoutLocale) },
+	{ code: "en", label: "English", url: getRelativeLocaleUrl("en", pathWithoutLocale) },
+];
+
+const currentLocaleName = locales.find((l) => l.code === locale)?.label ?? locale.toUpperCase();
+---
+
+<header
+	class="border-border/60 bg-background/80 fixed top-0 z-50 w-full border-b backdrop-blur-md"
+>
+	<div class="relative mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+		<a href={getRelativeLocaleUrl(locale, "/")} class="group flex items-center gap-3" aria-label="Schoonveld ICT home">
+			<Logo
+				class="text-foreground size-9 shrink-0 transition-transform duration-300 group-hover:-rotate-6"
+			/>
+			<span class="whitespace-nowrap text-lg md:text-2xl font-bold tracking-tight">
+				Schoonveld <span class="text-primary dark:text-primary">ICT</span>
+			</span>
+		</a>
+
+		<button
+			id="nav-toggle"
+			type="button"
+			class="text-muted-foreground hover:bg-muted/60 hover:text-foreground inline-flex items-center justify-center rounded-md p-2 transition-colors duration-200 lg:hidden"
+			aria-expanded="false"
+			aria-controls="primary-nav"
+			aria-label="Toggle navigation menu"
+		>
+			<MenuIcon class="size-6" data-menu-icon />
+			<XIcon class="hidden size-6" data-close-icon />
+		</button>
+
+		<nav
+			id="primary-nav"
+			class="border-border bg-background/95 absolute inset-x-0 top-16 hidden flex-col items-stretch gap-1 border-t p-4 shadow-lg backdrop-blur-md lg:static lg:flex lg:w-auto lg:flex-row lg:items-center lg:gap-3 lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none lg:backdrop-blur-none"
+			aria-label="Main navigation"
+		>
+			{
+				links.map((link) => (
+					<a
+						href={link.href}
+						class:list={[
+							"block rounded-md px-3 py-2.5 font-mono text-sm transition-colors duration-200 lg:inline-block lg:py-2",
+							currentPath === link.href.replace(/\/$/, "") || currentPath === link.href
+								? "text-foreground bg-muted"
+								: "text-muted-foreground hover:text-foreground hover:bg-muted/60",
+						]}
+						aria-current={currentPath === link.href.replace(/\/$/, "") || currentPath === link.href ? "page" : undefined}
+					>
+						{link.label}
+					</a>
+				))
+			}
+
+			<div class="border-border/60 mt-1 flex items-center justify-between gap-2 border-t pt-3 lg:contents lg:border-0 lg:pt-0">
+				<!-- Locale switcher dropdown -->
+				<details class="locale-switcher group relative">
+					<summary class="flex cursor-pointer list-none items-center gap-1.5 rounded-md px-3 py-2 font-mono text-sm text-muted-foreground transition-colors duration-200 hover:bg-muted/60 hover:text-foreground">
+						<WorldIcon class="size-4 shrink-0" />
+						<span>{currentLocaleName}</span>
+						<ChevronDownIcon class="size-3 shrink-0 transition-transform duration-200 group-open:rotate-180" />
+					</summary>
+					<div class="absolute right-0 top-full z-50 mt-1 min-w-36 overflow-hidden rounded-md border border-border bg-popover py-1 shadow-md">
+						{
+							locales.map((l) => (
+								<a
+									href={l.url}
+									class:list={[
+										"flex items-center px-3 py-2 text-sm transition-colors hover:bg-accent hover:text-accent-foreground",
+										l.code === locale
+											? "text-foreground font-medium"
+											: "text-muted-foreground",
+									]}
+									aria-current={l.code === locale ? "true" : undefined}
+								>
+									{l.label}
+								</a>
+							))
+						}
+					</div>
+				</details>
+
+				<ThemeToggle transition:persist />
+			</div>
+
+			<Button href={`${getRelativeLocaleUrl(locale, "/")}#contact`} variant="primary" size="sm" class="mt-2 w-full justify-center lg:mt-0 lg:ml-1 lg:w-auto">
+				{t.cta}
+			</Button>
+		</nav>
+	</div>
+</header>
+
+<script>
+	function setupLocaleSwitcher() {
+		const switcher = document.querySelector<HTMLDetailsElement>(".locale-switcher");
+		if (!switcher) return;
+
+		document.addEventListener(
+			"click",
+			(e) => {
+				if (!switcher.contains(e.target as Node)) {
+					switcher.open = false;
+				}
+			},
+			{ capture: true },
+		);
+	}
+
+	setupLocaleSwitcher();
+	document.addEventListener("astro:page-load", setupLocaleSwitcher);
+
+	function setupNavToggle() {
+		const toggle = document.querySelector<HTMLButtonElement>("#nav-toggle");
+		const nav = document.querySelector<HTMLElement>("#primary-nav");
+		if (!toggle || !nav) return;
+		if (toggle.dataset.navToggleInit === "true") return;
+		toggle.dataset.navToggleInit = "true";
+
+		const menuIcon = toggle.querySelector<HTMLElement>("[data-menu-icon]");
+		const closeIcon = toggle.querySelector<HTMLElement>("[data-close-icon]");
+
+		function closeMenu() {
+			nav!.classList.add("hidden");
+			nav!.classList.remove("flex");
+			toggle!.setAttribute("aria-expanded", "false");
+			menuIcon?.classList.remove("hidden");
+			closeIcon?.classList.add("hidden");
+		}
+
+		function openMenu() {
+			nav!.classList.remove("hidden");
+			nav!.classList.add("flex");
+			toggle!.setAttribute("aria-expanded", "true");
+			menuIcon?.classList.add("hidden");
+			closeIcon?.classList.remove("hidden");
+		}
+
+		toggle.addEventListener("click", () => {
+			if (nav.classList.contains("hidden")) {
+				openMenu();
+			} else {
+				closeMenu();
+			}
+		});
+
+		nav.querySelectorAll("a").forEach((link) => {
+			link.addEventListener("click", closeMenu);
+		});
+
+		document.addEventListener(
+			"click",
+			(e) => {
+				if (!nav.contains(e.target as Node) && !toggle.contains(e.target as Node)) {
+					closeMenu();
+				}
+			},
+			{ capture: true },
+		);
+
+		document.addEventListener("keydown", (e) => {
+			if (e.key === "Escape") closeMenu();
+		});
+
+		window.matchMedia("(min-width: 1024px)").addEventListener("change", (e) => {
+			if (e.matches) closeMenu();
+		});
+	}
+
+	setupNavToggle();
+	document.addEventListener("astro:page-load", setupNavToggle);
+</script>

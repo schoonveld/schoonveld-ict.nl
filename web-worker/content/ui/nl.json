@@ -1,0 +1,59 @@
+{
+    "meta": {
+        "description": "Schoonveld ICT — freelance software engineering door Steffen Schoonveld. Senior full-stack development, teamleiderschap en cloud-native oplossingen."
+    },
+    "navigation": {
+        "home": "Home",
+        "resume": "CV",
+        "cta": "Neem contact op",
+        "switchLocale": "EN"
+    },
+    "hero": {
+        "eyebrow": "~/schoonveld-ict $ full-stack software engineering",
+        "title": "Hallo, ik ben Steffen Schoonveld",
+        "description": "Ik help bedrijven bij de ontwikkeling van cloud-native software, het moderniseren van bestaande systemen en infrastructuur, en de inzet van AI in software en AI-assisted coding.",
+        "ctaPrimary": "Start een gesprek",
+        "ctaSecondary": "Bekijk mijn cv"
+    },
+    "contact": {
+        "eyebrow": "// contact",
+        "title": "Stuur me een bericht",
+        "description": "Heeft u een vraag of wilt u meer weten over wat ik voor u kan betekenen? Neem contact op, ik reageer binnen één werkdag.",
+        "emailLabel": "email:",
+        "basedInLabel": "gevestigd in:",
+        "location": "Haren, Nederland"
+    },
+    "form": {
+        "name": "Naam",
+        "namePlaceholder": "Uw naam",
+        "nameError": "Voer uw naam in",
+        "email": "E-mail",
+        "emailPlaceholder": "u@bedrijf.nl",
+        "emailError": "Voer een geldig e-mailadres in",
+        "company": "Bedrijf",
+        "companyPlaceholder": "Uw bedrijf",
+        "companyError": "Voer uw bedrijfsnaam in",
+        "message": "Bericht",
+        "messagePlaceholder": "Wat wilt u bouwen?",
+        "messageError": "Voer uw bericht in",
+        "submit": "Verstuur bericht",
+        "successEyebrow": "// bericht ontvangen",
+        "successHeading": "Bedankt voor uw bericht!",
+        "successBody": "Ik reageer binnen één werkdag.",
+        "errorEyebrow": "// fout",
+        "errorHeading": "Er is iets misgegaan",
+        "errorBody": "Er is een onverwachte fout opgetreden bij het verzenden. Probeer het later opnieuw."
+    },
+    "resume": {
+        "downloadCta": "Download cv (PDF)",
+        "workEyebrow": "// werkervaring",
+        "workTitle": "Werkervaring",
+        "skillsTitle": "Vaardigheden & Expertise",
+        "educationEyebrow": "// opleiding",
+        "educationTitle": "Opleiding",
+        "certEyebrow": "// certificeringen",
+        "certTitle": "Training & Certificering"
+    },
+    "footer": {
+    }
+}
