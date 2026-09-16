@@ -110,7 +110,7 @@ const currentLocaleName = locales.find((l) => l.code === locale)?.label ?? local
 				<ThemeToggle transition:persist />
 			</div>
 
-			<Button href="#contact" variant="primary" size="sm" class="mt-2 w-full justify-center lg:mt-0 lg:ml-1 lg:w-auto">
+			<Button href={`${getRelativeLocaleUrl(locale, "/")}#contact`} variant="primary" size="sm" class="mt-2 w-full justify-center lg:mt-0 lg:ml-1 lg:w-auto">
 				{t.cta}
 			</Button>
 		</nav>

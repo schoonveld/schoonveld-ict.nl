@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { contactSchema, type ContactFormInput } from "my-first-worker";
+import { contactSchema, type ContactFormInput } from "contact-worker";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -135,7 +135,7 @@ export default function ContactForm({ siteKey, apiUrl, translations: t }: Contac
 	if (status === "error") {
 		return (
 			<div className="py-10 text-center" aria-live="polite">
-				<p className="font-mono text-sm text-error">{t.errorEyebrow}</p>
+				<p className="font-mono text-sm text-rose-800 dark:text-rose-400">{t.errorEyebrow}</p>
 				<p className="mt-3 text-xl font-bold">{t.errorHeading}</p>
 				<p className="mt-2 text-muted-foreground">{t.errorBody}</p>
 			</div>

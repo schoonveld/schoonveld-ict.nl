@@ -15,6 +15,19 @@ const resumeIntroSchema = z.object({
 	subtitle: z.string(),
 });
 
+const educationSchema = z.object({
+	school: z.string(),
+	degree: z.string(),
+	year: z.string(),
+	order: z.number(),
+});
+
+const certificationSchema = z.object({
+	name: z.string(),
+	detail: z.string(),
+	order: z.number(),
+});
+
 const uiSchema = z.object({
 	meta: z.object({
 		description: z.string(),
@@ -65,34 +78,54 @@ const uiSchema = z.object({
 		downloadCta: z.string(),
 		workEyebrow: z.string(),
 		workTitle: z.string(),
+		skillsTitle: z.string(),
 		educationEyebrow: z.string(),
 		educationTitle: z.string(),
 		certEyebrow: z.string(),
 		certTitle: z.string(),
 	}),
 	footer: z.object({
-		copy: z.string(),
 	}),
 });
 
 const resumeNl = defineCollection({
-	loader: glob({ pattern: "*.md", base: "./resume/nl/experience" }),
+	loader: glob({ pattern: "*.md", base: "./content/resume/nl/experience" }),
 	schema: resumeSchema,
 });
 
 const resumeIntroNl = defineCollection({
-	loader: glob({ pattern: "*.md", base: "./resume/nl/intro" }),
+	loader: glob({ pattern: "*.md", base: "./content/resume/nl/intro" }),
 	schema: resumeIntroSchema,
 });
 
 const resumeEn = defineCollection({
-	loader: glob({ pattern: "*.md", base: "./resume/en/experience" }),
+	loader: glob({ pattern: "*.md", base: "./content/resume/en/experience" }),
 	schema: resumeSchema,
 });
 
 const resumeIntroEn = defineCollection({
-	loader: glob({ pattern: "*.md", base: "./resume/en/intro" }),
+	loader: glob({ pattern: "*.md", base: "./content/resume/en/intro" }),
 	schema: resumeIntroSchema,
+});
+
+const resumeEducationNl = defineCollection({
+	loader: glob({ pattern: "*.md", base: "./content/resume/nl/education" }),
+	schema: educationSchema,
+});
+
+const resumeEducationEn = defineCollection({
+	loader: glob({ pattern: "*.md", base: "./content/resume/en/education" }),
+	schema: educationSchema,
+});
+
+const resumeCertificationsNl = defineCollection({
+	loader: glob({ pattern: "*.md", base: "./content/resume/nl/certifications" }),
+	schema: certificationSchema,
+});
+
+const resumeCertificationsEn = defineCollection({
+	loader: glob({ pattern: "*.md", base: "./content/resume/en/certifications" }),
+	schema: certificationSchema,
 });
 
 const ui = defineCollection({
@@ -100,4 +133,14 @@ const ui = defineCollection({
 	schema: uiSchema,
 });
 
-export const collections = { ui, resumeNl, resumeIntroNl, resumeEn, resumeIntroEn };
+export const collections = {
+	ui,
+	resumeNl,
+	resumeIntroNl,
+	resumeEn,
+	resumeIntroEn,
+	resumeEducationNl,
+	resumeEducationEn,
+	resumeCertificationsNl,
+	resumeCertificationsEn,
+};

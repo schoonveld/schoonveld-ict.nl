@@ -18,15 +18,12 @@ const year = new Date().getFullYear();
 		<div class="flex items-center gap-3">
 			<Logo class="text-foreground size-7" />
 			<span>
-				© {year} Schoonveld ICT — {t.copy}
+				© {year} Schoonveld ICT B.V.
 			</span>
 		</div>
 		<div class="flex items-center gap-6 font-mono text-xs">
 			<a href={getRelativeLocaleUrl(locale, "/resume")} class="hover:text-foreground transition-colors">Resume</a>
-			<a href={getRelativeLocaleUrl(locale, "/#contact")} class="hover:text-foreground transition-colors">Contact</a>
-			<a href="mailto:steffen@schoonveld-ict.nl" class="hover:text-foreground transition-colors">
-				steffen@schoonveld-ict.nl
-			</a>
+			<a href={`${getRelativeLocaleUrl(locale, "/")}#contact`} class="hover:text-foreground transition-colors">Contact</a>
 		</div>
 	</div>
 </footer>

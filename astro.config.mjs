@@ -14,27 +14,16 @@ export default defineConfig({
 	},
 	vite: {
 		plugins: [tailwindcss()],
-		environments: {
-			client: {
-			  optimizeDeps: {
-				include: [
-					// React island
-					'react',
-					'react/jsx-runtime',
-					'react/jsx-dev-runtime',
-					'react-dom',
-					'react-dom/client',
-					'@astrojs/react/client.js',
-					// Astro client features used in this project
-					'astro/runtime/client/dev-toolbar/entrypoint.js',
-					'astro/virtual-modules/transitions-router.js',
-					'astro/virtual-modules/transitions-events.js',
-					'astro/virtual-modules/transitions-swap-functions.js',
-					'astro/virtual-modules/transitions-types.js',
-				  ],
-				  ignoreOutdatedRequests: true,
-			  },
-			},
-		  },
+		// Proxy contact to localhost
+		// server: {
+		// 	proxy: {
+		// 		'/api/contact': {
+					// target: 'http://localhost:8787',
+					// changeOrigin: true,
+					// rewrite: (path) => path.replace(/^\/api\/contact/, ''),
+		// 		},
+		// 	},
+		// },
+	
 	},
 });

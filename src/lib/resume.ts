@@ -19,5 +19,17 @@ export async function getResumeData(locale: "nl" | "en") {
 		entries.map(async (entry) => ({ entry, Content: (await render(entry)).Content })),
 	);
 
-	return { t, introEntry, IntroContent, items };
+	const education = (
+		await getCollection(locale === "en" ? "resumeEducationEn" : "resumeEducationNl")
+	)
+		.sort((a, b) => a.data.order - b.data.order)
+		.map((entry) => entry.data);
+
+	const certifications = (
+		await getCollection(locale === "en" ? "resumeCertificationsEn" : "resumeCertificationsNl")
+	)
+		.sort((a, b) => a.data.order - b.data.order)
+		.map((entry) => entry.data);
+
+	return { t, introEntry, IntroContent, items, education, certifications };
 }

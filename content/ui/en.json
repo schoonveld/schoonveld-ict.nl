@@ -11,14 +11,14 @@
     "hero": {
         "eyebrow": "~/schoonveld-ict $ full-stack software engineering",
         "title": "Hi, I'm Steffen Schoonveld",
-        "description": "As an experienced senior engineer, I help companies and teams build cloud-native software and modernize existing systems — from strategic advice to hands-on implementation.",
+        "description": "I help companies to develop cloud-native software, modernize existing systems and infrastructure, and put AI to work in software and AI-assisted coding.",
         "ctaPrimary": "Start a conversation",
         "ctaSecondary": "View resume"
     },
     "contact": {
         "eyebrow": "// contact",
-        "title": "Let's build something solid",
-        "description": "Looking for a senior engineer who can take ownership? Tell me about your project and I will get back to you within one business day.",
+        "title": "Get in touch",
+        "description": "Have a question or want to know more about what I can do for you? Get in touch, and I'll get back to you within one business day.",
         "emailLabel": "email:",
         "basedInLabel": "based in:",
         "location": "Haren, the Netherlands"
@@ -48,12 +48,11 @@
         "downloadCta": "Download resume (PDF)",
         "workEyebrow": "// work experience",
         "workTitle": "Work Experience",
+        "skillsTitle": "Skills & Expertise",
         "educationEyebrow": "// education",
         "educationTitle": "Education",
         "certEyebrow": "// certifications",
         "certTitle": "Training & Certification"
     },
-    "footer": {
-        "copy": "Freelance software engineering"
-    }
+    "footer": {}
 }
