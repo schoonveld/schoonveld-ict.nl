@@ -1,34 +1,33 @@
 ---
 import "@/styles/global.css";
 import Logo from "@/components/logo.astro";
-import { getResumeData } from "@/lib/resume";
+import { Badge } from "@/components/starwind/badge";
+import { getResumeData, skills } from "@/lib/resume";
 
 interface Props {
 	locale: "nl" | "en";
 }
 
 const { locale } = Astro.props;
-const { t, introEntry, IntroContent, items } = await getResumeData(locale);
-
-const education = [
-	{
-		school: "Hanzehogeschool Groningen",
-		degree: "BSc — Informatica & Communicatietechnologie",
-		year: "2007",
-	},
-	{
-		school: "Noorderpoort College Groningen",
-		degree: "Technische Informatica",
-		year: "2004",
-	},
-];
-
-const certifications = [
-	{ name: "Certified Scrum Master", detail: "Certificaat behaald" },
-	{ name: "Elasticsearch Engineer", detail: "Certificaat van deelname" },
-];
+const { t, introEntry, IntroContent, items, education, certifications } =
+	await getResumeData(locale);
 
 const email = "steffen@schoonveld-ict.nl";
+const phone = "06-41361795";
+const website = "schoonveld-ict.nl";
+
+const languages =
+	locale === "nl"
+		? [
+				{ name: "Nederlands", level: "moedertaal" },
+				{ name: "Engels", level: "vloeiend" },
+				{ name: "Duits", level: "basis" },
+			]
+		: [
+				{ name: "Dutch", level: "native speaker" },
+				{ name: "English", level: "fluent" },
+				{ name: "German", level: "basic" },
+			];
 ---
 
 <html lang={locale}>
@@ -40,131 +39,159 @@ const email = "steffen@schoonveld-ict.nl";
 		<style>
 			@page {
 				size: A4;
-				margin: 18mm;
+				margin: 12mm;
 			}
 
 			:root {
 				color-scheme: light;
 			}
 
-			.print-header {
-				min-height: 40mm;
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-				gap: 8mm;
-				padding-bottom: 6mm;
-				border-bottom: 1px solid var(--color-navy-100);
-				margin-bottom: 8mm;
+			* {
+				-webkit-print-color-adjust: exact;
+				print-color-adjust: exact;
 			}
 
-			.sidebar {
-				position: fixed;
-				top: 40mm;
-				left: 0;
-				width: 55mm;
+			.entry {
+				break-inside: auto;
 			}
 
-			.main-col {
-				margin-left: 63mm;
-				border-left: 1px solid var(--color-navy-100);
-				padding-left: 8mm;
+			.entry + .entry {
+				margin-top: 26px;
 			}
 		</style>
 	</head>
 	<body class="bg-background text-foreground font-sans text-[10.5pt] leading-relaxed">
-		<header class="print-header">
-			<div class="flex items-center gap-2">
-				<Logo class="text-navy-700 size-7 shrink-0" />
-				<span class="text-base font-bold tracking-tight">
-					Schoonveld <span class="text-primary">ICT</span>
+		<div class="grid grid-cols-[170px_1fr] items-start gap-6">
+			<!-- <img
+				src="/hero-image.jpg"
+				alt={introEntry.data.title}
+				class="border-border size-[92px] shrink-0 rounded-full border object-cover"
+				style="object-position: right center;"
+			/> -->
+			<div class="col-start-2">
+				<div class="mb-4 flex items-center gap-2">
+					<Logo class="text-navy-700 size-[28px] shrink-0" />
+					<span class="text-xl font-bold tracking-tight">
+						Schoonveld <span class="text-primary">ICT</span>
+					</span>
+				</div>
+				<h1 class="text-[34px] leading-[1.1] font-bold tracking-tight">
+					{introEntry.data.title}
+				</h1>
+			</div>
+		</div>
+
+		<div class="border-border mt-[22px] grid grid-cols-[170px_1fr] gap-6 border-t pt-[22px]">
+			<div class="flex flex-col gap-[20px] font-mono text-[11.5px] leading-[1.45]">
+				<p class="text-rose-800 mb-3 font-mono text-[13px] tracking-wider">{t.contact.eyebrow}</p>
+				<span class="block">
+					<span class="font-bold text-foreground block">{t.contact.emailLabel}</span>{email}
+				</span>
+				<span class="block">
+					<span class="font-bold text-foreground block">{t.contact.phoneLabel}</span>{phone}
+				</span>
+				<span class="block">
+					<span class="font-bold text-foreground block">{t.contact.basedInLabel}</span>{t.contact.location}
+				</span>
+				<span class="block">
+					<span class="font-bold text-foreground block">{t.contact.webLabel}</span>{website}
 				</span>
 			</div>
-			<div class="flex items-center gap-4">
-				<div class="text-right">
-					<h1 class="text-2xl font-bold tracking-tight">{introEntry.data.title}</h1>
-					<p class="text-muted-foreground font-mono text-sm">{introEntry.data.subtitle}</p>
-				</div>
-				<div class="border-navy-100 size-[28mm] shrink-0 overflow-hidden rounded-full border">
-					<img
-						src="/hero-image.jpg"
-						alt={introEntry.data.title}
-						class="size-full object-cover"
-						style="object-position: right center;"
-					/>
+			<div>
+				<p class="text-rose-800 mb-3 font-mono text-[13px] tracking-wider">
+					{t.resume.profileEyebrow}
+				</p>
+				<div class="text-muted-foreground max-w-[62ch] space-y-2.5 text-[14.5px] leading-[1.6]">
+					<IntroContent />
 				</div>
 			</div>
-		</header>
+		</div>
 
-		<aside class="sidebar space-y-8 text-sm">
-			<div>
-				<p class="text-muted-foreground text-xs font-bold tracking-wider uppercase">Contact</p>
-				<p class="mt-2">{t.contact.emailLabel} {email}</p>
-				<p class="mt-1">{t.contact.basedInLabel} {t.contact.location}</p>
+		<div class="ml-[194px] mt-[34px]">
+			<p class="text-rose-800 mb-3.5 font-mono text-[13px] tracking-wider">
+				{t.resume.skillsEyebrow}
+			</p>
+			<div class="flex flex-wrap gap-2 font-mono">
+				{skills.map((skill) => <Badge variant="outline" class="font-mono text-xs">{skill}</Badge>)}
 			</div>
+		</div>
 
-			<div>
-				<p class="text-muted-foreground text-xs font-bold tracking-wider uppercase">
-					{t.resume.educationTitle}
-				</p>
-				<ul class="mt-2 space-y-4">
-					{
-						education.map((item) => (
-							<li class="[break-inside:avoid]">
-								<p class="font-bold">{item.school}</p>
-								<p class="text-muted-foreground">{item.degree}</p>
-								<p class="text-muted-foreground text-xs">{item.year}</p>
-							</li>
-						))
-					}
-				</ul>
-			</div>
+		<p class="text-rose-800 mt-9 mb-[18px] ml-[194px] font-mono text-[13px] tracking-wider">
+			{t.resume.workEyebrow}
+		</p>
+		<div class="relative bg-[linear-gradient(to_right,transparent_0,transparent_180px,var(--input)_180px,var(--input)_182px,transparent_182px)]">
+			{
+				items.map(({ entry, Content }) => (
+					<div class="entry relative grid grid-cols-[170px_1fr] gap-6">
+						<span
+							class="bg-primary absolute top-1 left-[177px] block size-[9px] rounded-full shadow-[0_0_0_3px_var(--background)]"
+							aria-hidden="true"
+						/>
+						<div class="flex flex-col gap-y-3 leading-none">
+							<p class="m-0 text-right font-mono text-[12.5px] font-bold">
+								<span class="text-muted-foreground font-normal">@</span> {entry.data.company}
+							</p>
 
-			<div>
-				<p class="text-muted-foreground text-xs font-bold tracking-wider uppercase">
-					{t.resume.certTitle}
-				</p>
-				<ul class="mt-2 space-y-4">
-					{
-						certifications.map((item) => (
-							<li class="[break-inside:avoid]">
-								<p class="font-bold">{item.name}</p>
-								<p class="text-muted-foreground">{item.detail}</p>
-							</li>
-						))
-					}
-				</ul>
-			</div>
-		</aside>
-
-		<main class="main-col">
-			<div class="text-muted-foreground space-y-3 text-sm [&_p]:leading-relaxed">
-				<IntroContent />
-			</div>
-
-			<section class="mt-10">
-				<h2 class="text-foreground text-lg font-bold tracking-tight">{t.resume.workTitle}</h2>
-				<ol class="border-navy-100 relative mt-6 space-y-8 border-l-2 pl-6">
-					{
-						items.map(({ entry, Content }) => (
-							<li class="relative [break-inside:avoid]">
-								<span
-									class="border-primary bg-background absolute top-1 -left-[29px] block size-3 rounded-full border-2"
-									aria-hidden="true"
-								/>
-								<p class="text-primary font-mono text-xs">
-									{entry.data.from} — {entry.data.until}
+							<div>
+								<p class="m-0 text-muted-foreground font-mono text-[11.5px] text-right">
+									{entry.data.from}
 								</p>
-								<h3 class="mt-1 text-base font-bold tracking-tight">{entry.data["job-title"]}</h3>
-								<p class="text-muted-foreground mt-0.5 font-mono text-xs">@ {entry.data.company}</p>
-								<div class="text-muted-foreground mt-2 space-y-2 text-sm [&_li]:mt-1 [&_strong]:text-foreground [&_ul]:list-disc [&_ul]:pl-5">
-									<Content />
-								</div>
-							</li>
-						))
-					}
-				</ol>
-			</section>
-		</main>
+								<p class="m-0 text-muted-foreground font-mono text-[11.5px] text-right">
+									{entry.data.until}
+								</p>
+							</div>
+							
+						</div>
+						<div>
+							<h2 class="text-[16.5px] font-bold tracking-tight">{entry.data["job-title"]}</h2>
+							<div class="text-muted-foreground mt-2 max-w-[62ch] space-y-1.5 text-[14px] leading-[1.6] [&_li]:mb-[3px] [&_p:has(>strong:only-child)]:mt-3 [&_p:has(>strong:only-child)]:mb-1.5 [&_p:has(>strong:only-child)]:text-[13px] [&_strong]:text-foreground [&_ul]:list-disc [&_ul]:pl-[18px]">
+								<Content />
+							</div>
+						</div>
+					</div>
+				))
+			}
+		</div>
+
+		<p class="text-rose-800 mt-9 mb-[18px] ml-[194px] font-mono text-[13px] tracking-wider">
+			{t.resume.educationEyebrow}
+		</p>
+		{
+			education.map((item) => (
+				<div class="entry grid grid-cols-[170px_1fr] gap-6">
+					<p class="text-muted-foreground justify-self-end font-mono text-[11.5px]">{item.year}</p>
+					<div>
+						<h2 class="text-[15px] font-bold tracking-tight">{item.degree}</h2>
+						<p class="text-muted-foreground mt-1 text-[14px]">{item.school}</p>
+					</div>
+				</div>
+			))
+		}
+
+		<p class="text-rose-800 mt-9 mb-3.5 ml-[194px] font-mono text-[13px] tracking-wider">
+			{t.resume.certEyebrow}
+		</p>
+		<ul class="text-muted-foreground ml-[194px] list-disc space-y-[3px] pl-[18px] text-[14px] leading-[1.6]">
+			{
+				certifications.map((item) => (
+					<li>
+						<span class="text-foreground font-bold">{item.name}</span> — {item.detail}
+					</li>
+				))
+			}
+		</ul>
+
+		<p class="text-rose-800 mt-8 mb-3.5 ml-[194px] font-mono text-[13px] tracking-wider">
+			{t.resume.languagesEyebrow}
+		</p>
+		<div class="ml-[194px] flex flex-wrap gap-x-7 gap-y-2 font-mono text-[12.5px]">
+			{
+				languages.map((lang) => (
+					<span>
+						{lang.name} <span class="text-muted-foreground">— {lang.level}</span>
+					</span>
+				))
+			}
+		</div>
 	</body>
 </html>

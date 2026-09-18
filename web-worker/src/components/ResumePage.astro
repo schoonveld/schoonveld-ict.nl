@@ -2,7 +2,7 @@
 import Layout from "@/layouts/Layout.astro";
 import { Badge } from "@/components/starwind/badge";
 import { Button } from "@/components/starwind/button";
-import { getResumeData } from "@/lib/resume";
+import { getResumeData, skills } from "@/lib/resume";
 
 interface Props {
 	locale: "nl" | "en";
@@ -11,22 +11,6 @@ interface Props {
 const { locale } = Astro.props;
 const { t, introEntry, IntroContent, items, education, certifications } =
 	await getResumeData(locale);
-
-const skills = [
-	"Java",
-	"Spring",
-	"Angular",
-	"React",
-	"TypeScript",
-	"GraphQL",
-	"Gradle",
-	"Maven",
-	"Git",
-	"Docker",
-	"Kubernetes",
-	"Helm",
-	"PostgreSQL",
-];
 ---
 
 <Layout

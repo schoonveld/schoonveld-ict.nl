@@ -50,7 +50,9 @@ const uiSchema = z.object({
 		title: z.string(),
 		description: z.string(),
 		emailLabel: z.string(),
+		phoneLabel: z.string(),
 		basedInLabel: z.string(),
+		webLabel: z.string(),
 		location: z.string(),
 	}),
 	form: z.object({
@@ -76,13 +78,16 @@ const uiSchema = z.object({
 	}),
 	resume: z.object({
 		downloadCta: z.string(),
+		profileEyebrow: z.string(),
 		workEyebrow: z.string(),
 		workTitle: z.string(),
+		skillsEyebrow: z.string(),
 		skillsTitle: z.string(),
 		educationEyebrow: z.string(),
 		educationTitle: z.string(),
 		certEyebrow: z.string(),
 		certTitle: z.string(),
+		languagesEyebrow: z.string(),
 	}),
 	footer: z.object({
 	}),

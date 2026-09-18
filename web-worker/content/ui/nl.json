@@ -20,7 +20,9 @@
         "title": "Stuur me een bericht",
         "description": "Heeft u een vraag of wilt u meer weten over wat ik voor u kan betekenen? Neem contact op, ik reageer binnen één werkdag.",
         "emailLabel": "email:",
+        "phoneLabel": "telefoon:",
         "basedInLabel": "gevestigd in:",
+        "webLabel": "web:",
         "location": "Haren, Nederland"
     },
     "form": {
@@ -46,13 +48,16 @@
     },
     "resume": {
         "downloadCta": "Download cv (PDF)",
+        "profileEyebrow": "// profiel",
         "workEyebrow": "// werkervaring",
         "workTitle": "Werkervaring",
+        "skillsEyebrow": "// vaardigheden",
         "skillsTitle": "Vaardigheden & Expertise",
         "educationEyebrow": "// opleiding",
         "educationTitle": "Opleiding",
         "certEyebrow": "// certificeringen",
-        "certTitle": "Training & Certificering"
+        "certTitle": "Training & Certificering",
+        "languagesEyebrow": "// talen"
     },
     "footer": {
     }
