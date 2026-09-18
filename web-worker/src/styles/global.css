@@ -24,17 +24,18 @@
   --font-sans: "NimbusSanL", "Helvetica Neue", Arial, sans-serif;
   --font-mono: "JetBrains Mono Variable", "JetBrains Mono", ui-monospace, monospace;
 
-  /* Brand: deep navy + rose (standard Tailwind rose-700, plus its rose-300/400 variants) */
-  --color-navy-50: oklch(0.97 0.005 260);
-  --color-navy-100: oklch(0.93 0.01 260);
-  --color-navy-200: oklch(0.86 0.02 260);
-  --color-navy-300: oklch(0.74 0.03 260);
-  --color-navy-400: oklch(0.6 0.04 260);
-  --color-navy-500: oklch(0.48 0.045 260);
-  --color-navy-700: oklch(0.33 0.04 260);
-  --color-navy-800: oklch(0.27 0.035 260);
-  --color-navy-900: oklch(0.23 0.03 260);
-  --color-navy-950: oklch(0.18 0.025 260);
+  /* Brand: neutral ink ramp (chroma 0) + rose accent. Serves both themes. */
+  --color-ink-50: oklch(0.985 0 0); /* #fafafa */
+  --color-ink-100: oklch(0.955 0 0); /* #f0f0f0 */
+  --color-ink-200: oklch(0.93 0 0); /* #e8e8e8 */
+  --color-ink-300: oklch(0.86 0 0); /* #d1d1d1 */
+  --color-ink-400: oklch(0.708 0 0); /* #a1a1a1 */
+  --color-ink-500: oklch(0.6 0 0); /* #808080 */
+  --color-ink-600: oklch(0.5 0 0); /* #636363 */
+  --color-ink-700: oklch(0.368 0 0); /* #3f3f3f */
+  --color-ink-800: oklch(0.289 0 0); /* #2b2b2b */
+  --color-ink-900: oklch(0.248 0 0); /* #212121 */
+  --color-ink-950: oklch(0.205 0 0); /* #171717 */
 
   --animate-fade-up: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 
@@ -98,37 +99,37 @@
 
 :root {
   --background: var(--color-white);
-  --foreground: var(--color-navy-950);
+  --foreground: var(--color-ink-950);
   --card: var(--color-white);
-  --card-foreground: var(--color-navy-950);
+  --card-foreground: var(--color-ink-950);
   --popover: var(--color-white);
   --primary: var(--color-rose-600);
-  --muted: var(--color-navy-50);
-  --muted-foreground: var(--color-navy-500);
-  --accent: var(--color-navy-50);
-  --accent-foreground: var(--color-navy-900);
+  --muted: var(--color-ink-100);
+  --muted-foreground: var(--color-ink-600);
+  --accent: var(--color-ink-100);
+  --accent-foreground: var(--color-ink-900);
   --error: var(--color-red-700);
-  --border: var(--color-navy-100);
-  --input: var(--color-navy-200);
-  --outline: var(--color-navy-400);
+  --border: var(--color-ink-200);
+  --input: var(--color-ink-300);
+  --outline: var(--color-ink-500);
   --radius: 0.625rem;
 }
 
 .dark {
-  --background: var(--color-zinc-900);
-  --foreground: var(--color-navy-50);
-  --card: var(--color-navy-900);
-  --card-foreground: var(--color-navy-50);
-  --popover: var(--color-navy-800);
+  --background: var(--color-ink-950);
+  --foreground: var(--color-ink-50);
+  --card: var(--color-ink-900);
+  --card-foreground: var(--color-ink-50);
+  --popover: var(--color-ink-800);
   --primary: var(--color-rose-600);
-  --muted: var(--color-navy-900);
-  --muted-foreground: var(--color-navy-300);
-  --accent: var(--color-navy-800);
-  --accent-foreground: var(--color-navy-100);
+  --muted: var(--color-ink-900);
+  --muted-foreground: var(--color-ink-400);
+  --accent: var(--color-ink-800);
+  --accent-foreground: var(--color-ink-100);
   --error: var(--color-red-800);
-  --border: --alpha(var(--color-neutral-50) / 10%);
-  --input: --alpha(var(--color-neutral-50) / 15%);
-  --outline: var(--color-neutral-500);
+  --border: --alpha(var(--color-ink-50) / 10%);
+  --input: --alpha(var(--color-ink-50) / 15%);
+  --outline: var(--color-ink-500);
 }
 
 @layer base {

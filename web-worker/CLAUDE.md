@@ -36,7 +36,7 @@ Personal portfolio / freelance website for Steffen Schoonveld, built with Astro 
 **Content collections** (`src/content.config.ts`):
 - `ui` — JSON translation files in `./content/ui/`.
 
-**Styling**: Tailwind CSS v4 (via `@tailwindcss/vite`). Brand palette is `navy-*` + `gold-*` defined as custom OKLCH colors in `src/styles/global.css`. Dark mode is toggled by adding/removing the `dark` class on `<html>` and persisted in `localStorage`. Scroll-reveal animations use `[data-reveal]` + `IntersectionObserver` wired up in `Layout.astro`.
+**Styling**: Tailwind CSS v4 (via `@tailwindcss/vite`). Brand palette is a single neutral `ink-*` ramp (chroma 0, defined as custom OKLCH colors in `src/styles/global.css`) plus Tailwind's stock `rose-*` as the accent. The same `ink-*` ramp serves both themes via the semantic tokens in `:root` and `.dark` — prefer those tokens (`bg-muted`, `text-muted-foreground`, ...) over raw `ink-*` utilities in components. Dark mode is toggled by adding/removing the `dark` class on `<html>` and persisted in `localStorage`. Scroll-reveal animations use `[data-reveal]` + `IntersectionObserver` wired up in `Layout.astro`.
 
 **Path alias**: `@/` maps to `src/` — use this for all imports.
 
