@@ -5,12 +5,12 @@ company: 'Dataprovider.com'
 job-title: 'Team & Technical Lead'
 ---
 
-As team lead of the Integrations team I led the development team responsible for building and maintaining the Dataprovider.com web platform — working as a full-stack developer while acting as first-line manager for the team and owning architectural and implementation decisions.
+As team lead of the Integrations team I led the development team responsible for building and maintaining the Dataprovider.com web platform. Alongside working as a full-stack developer with the team developing features and making architecture decisions.
 
-**Results**
+#### Results
 
-- Migrated legacy PHP components to a Spring Boot microservices architecture in the private cloud.
-- Migrated the legacy authorisation solution to an OAuth2 SaaS provider (Auth0).
-- Built a new search engine in Java for excluding indexed data from Elasticsearch.
-- Built the new public website with React, Next.js, Tailwind CSS and the Prismic headless CMS.
-- Improved stability and reduced production incidents by introducing E2E testing in the build pipeline with Cypress and Docker.
+- Brought stability and structure to feature delivery, resulting in fewer production incidents and more predictable planning.
+- Authentication and authorisation on OpenID Connect (Auth0) and Spring Security to replace a legacy solution, substantially cutting maintenance overhead and improving security.
+- File management system on Amazon S3 that let users manage and share various content types (exports, file uploads and more).
+- Marketing website on Next.js and Prismic CMS, improving SEO performance and lead generation.
+- Generic search API on the Elasticsearch cluster, letting the company deliver new search use cases on the indexed data faster.

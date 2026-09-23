@@ -60,7 +60,7 @@ const languages =
 			}
 		</style>
 	</head>
-	<body class="bg-background text-foreground font-sans text-[10.5pt] leading-relaxed">
+	<body class="bg-background text-foreground font-sans text-[13.5px] leading-[1.55]">
 		<div class="grid grid-cols-[170px_1fr] items-start gap-6">
 			<!-- <img
 				src="/hero-image.jpg"
@@ -81,9 +81,9 @@ const languages =
 			</div>
 		</div>
 
-		<div class="border-border mt-[22px] grid grid-cols-[170px_1fr] gap-6 border-t pt-[22px]">
-			<div class="flex flex-col gap-[20px] font-mono text-[11.5px] leading-[1.45]">
-				<p class="text-rose-800 mb-3 font-mono text-[13px] tracking-wider">{t.contact.eyebrow}</p>
+		<div class="border-border mt-[16px] grid grid-cols-[170px_1fr] gap-6 border-t pt-[16px]">
+			<div class="flex flex-col gap-[13px] font-mono text-[10.5px] leading-[1.4]">
+				<p class="text-rose-800 mb-2 font-mono text-[13px] tracking-wider">{t.contact.eyebrow}</p>
 				<span class="block">
 					<span class="font-bold text-foreground block">{t.contact.emailLabel}</span>{email}
 				</span>
@@ -98,16 +98,16 @@ const languages =
 				</span>
 			</div>
 			<div>
-				<p class="text-rose-800 mb-3 font-mono text-[13px] tracking-wider">
+				<p class="text-rose-800 mb-2 font-mono text-[13px] tracking-wider">
 					{t.resume.profileEyebrow}
 				</p>
-				<div class="text-muted-foreground max-w-[62ch] space-y-2.5 text-[14.5px] leading-[1.6] [&_h2]:text-foreground [&_h2]:mt-3 [&_h2]:text-[16px] [&_h2]:font-bold [&_h2]:tracking-tight [&_h3]:text-foreground [&_h3]:mt-2.5 [&_h3]:text-[15px] [&_h3]:font-bold [&_h3]:tracking-tight [&_h4]:text-foreground [&_h4]:mt-2 [&_h4]:text-[14.5px] [&_h4]:font-bold">
+				<div class="text-muted-foreground max-w-[62ch] space-y-2 text-[13.5px] leading-[1.55] [&_h2]:text-foreground [&_h2]:mt-3 [&_h2]:text-[16px] [&_h2]:font-bold [&_h2]:tracking-tight [&_h3]:text-foreground [&_h3]:mt-2.5 [&_h3]:text-[15px] [&_h3]:font-bold [&_h3]:tracking-tight [&_h4]:text-foreground [&_h4]:mt-2 [&_h4]:text-[14.5px] [&_h4]:font-bold">
 					<IntroContent />
 				</div>
 			</div>
 		</div>
 
-		<div class="ml-[194px] mt-[34px]">
+		<div class="ml-[194px] mt-[24px]">
 			<p class="text-rose-800 mb-3.5 font-mono text-[13px] tracking-wider">
 				{t.resume.skillsEyebrow}
 			</p>
@@ -144,7 +144,7 @@ const languages =
 						</div>
 						<div>
 							<h2 class="text-[16.5px] font-bold tracking-tight">{entry.data["job-title"]}</h2>
-							<div class="text-muted-foreground mt-2 max-w-[62ch] space-y-1.5 text-[14px] leading-[1.6] [&_li]:mb-[3px] [&_p:has(>strong:only-child)]:mt-3 [&_p:has(>strong:only-child)]:mb-1.5 [&_p:has(>strong:only-child)]:text-[13px] [&_strong]:text-foreground [&_ul]:list-disc [&_ul]:pl-[18px] [&_h3]:text-foreground [&_h3]:mt-3 [&_h3]:text-[14.5px] [&_h3]:font-bold [&_h3]:tracking-tight [&_h4]:text-foreground [&_h4]:mt-2 [&_h4]:text-[14px] [&_h4]:font-bold">
+							<div class="text-muted-foreground mt-2 max-w-[62ch] space-y-1.5 text-[13.5px] leading-[1.55] [&_li]:mb-[3px] [&_p:has(>strong:only-child)]:mt-3 [&_p:has(>strong:only-child)]:mb-1.5 [&_p:has(>strong:only-child)]:text-[13px] [&_strong]:text-foreground [&_ul]:list-disc [&_ul]:pl-[18px] [&_h3]:text-foreground [&_h3]:mt-3 [&_h3]:text-[14.5px] [&_h3]:font-bold [&_h3]:tracking-tight [&_h4]:text-foreground [&_h4]:mt-2 [&_h4]:text-[14px] [&_h4]:font-bold">
 								<Content />
 							</div>
 						</div>
@@ -162,7 +162,7 @@ const languages =
 					<p class="text-muted-foreground justify-self-end font-mono text-[11.5px]">{item.year}</p>
 					<div>
 						<h2 class="text-[15px] font-bold tracking-tight">{item.degree}</h2>
-						<p class="text-muted-foreground mt-1 text-[14px]">{item.school}</p>
+						<p class="text-muted-foreground mt-1 text-[13.5px]">{item.school}</p>
 					</div>
 				</div>
 			))
@@ -171,7 +171,7 @@ const languages =
 		<p class="text-rose-800 mt-9 mb-3.5 ml-[194px] font-mono text-[13px] tracking-wider">
 			{t.resume.certEyebrow}
 		</p>
-		<ul class="text-muted-foreground ml-[194px] list-disc space-y-[3px] pl-[18px] text-[14px] leading-[1.6]">
+		<ul class="text-muted-foreground ml-[194px] list-disc space-y-[3px] pl-[18px] text-[13.5px] leading-[1.55]">
 			{
 				certifications.map((item) => (
 					<li>

@@ -11,6 +11,8 @@ interface Props {
 const { locale } = Astro.props;
 const { t, introEntry, IntroContent, items, education, certifications } =
 	await getResumeData(locale);
+
+const resumePdfHref = locale === "en" ? "/en/resume.pdf" : "/resume.pdf";
 ---
 
 <Layout
@@ -51,7 +53,7 @@ const { t, introEntry, IntroContent, items, education, certifications } =
 		</div>
 
 		<div class="animate-fade-up mt-8" style="animation-delay: 400ms">
-			<Button href="/resume.pdf" variant="primary" target="_blank" rel="noopener">
+			<Button href={resumePdfHref} variant="primary" target="_blank" rel="noopener">
 				{t.resume.downloadCta}
 			</Button>
 		</div>
@@ -80,8 +82,8 @@ const { t, introEntry, IntroContent, items, education, certifications } =
 						<p class="mt-1 font-mono text-sm">
 							@ {entry.data.company}
 						</p>
-						<div class="text-muted-foreground mt-4 space-y-3 leading-relaxed [&_li]:mt-1.5 [&_strong]:text-foreground [&_ul]:list-disc [&_ul]:ps-5">
-							{/* <Content /> */}
+						<div class="text-muted-foreground mt-4 space-y-3 leading-relaxed [&_li]:mt-1.5 [&_strong]:text-foreground [&_ul]:list-disc [&_ul]:ps-5 [&_h3]:text-foreground [&_h3]:text-lg [&_h3]:font-bold [&_h3]:tracking-tight [&_h4]:text-foreground [&_h4]:text-base [&_h4]:font-bold [&_h4]:tracking-tight">
+							<Content />
 						</div>
 					</li>
 				))
