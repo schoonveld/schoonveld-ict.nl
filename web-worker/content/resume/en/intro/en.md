@@ -4,6 +4,6 @@ title: "Steffen Schoonveld"
 subtitle: "Full-Stack Software Engineer"
 ---
 
-Senior full-stack software engineer with extensive experience in backend and frontend development. With a background as team lead and lead developer, I can steer a development team and communicate with stakeholders.
+Senior Software Engineer specialising in cloud-native development. With more than 10 years of experience across a range of clients, I help organisations build stable and scalable solutions.
 
-As a developer I have deep knowledge of the Spring framework and experience with a variety of frontend technologies, alongside cloud architectures, cloud-native development, DevOps and CI/CD. My analytical and communication skills allow me to oversee a complex IT landscape — and I strive for elegant, simple solutions that remain understandable and maintainable, even when the problem is complex.
+As a Java developer, I have in-depth knowledge of the Spring framework, I have experience with frontend technologies such as React and Angular, cloud architectures, DevOps and CI/CD. My analytical and communication skills allow me to quickly understand complex IT landscapes. I aim for elegant, simple solutions that remain understandable and maintainable, even when the problem itself is complex.

@@ -20,7 +20,9 @@
         "title": "Get in touch",
         "description": "Have a question or want to know more about what I can do for you? Get in touch, and I'll get back to you within one business day.",
         "emailLabel": "email:",
+        "phoneLabel": "phone:",
         "basedInLabel": "based in:",
+        "webLabel": "web:",
         "location": "Haren, the Netherlands"
     },
     "form": {
@@ -46,13 +48,16 @@
     },
     "resume": {
         "downloadCta": "Download resume (PDF)",
+        "profileEyebrow": "// profile",
         "workEyebrow": "// work experience",
         "workTitle": "Work Experience",
+        "skillsEyebrow": "// skills",
         "skillsTitle": "Skills & Expertise",
         "educationEyebrow": "// education",
         "educationTitle": "Education",
         "certEyebrow": "// certifications",
-        "certTitle": "Training & Certification"
+        "certTitle": "Training & Certification",
+        "languagesEyebrow": "// languages"
     },
     "footer": {}
 }

@@ -7,7 +7,7 @@ job-title: 'Full-Stack Developer'
 
 Full-stack developer in one of the DevOps scrum teams of the Digitale Dienstverlening Deelnemers (DDD) programme — a multi-tenant web platform with fund-specific implementations where participants manage their pension online.
 
-**Results**
+#### Results
 
 - First delivery of the "Beleggingswijzer" for determining a participant's risk profile.
 - Implemented digital signing with DigiD.

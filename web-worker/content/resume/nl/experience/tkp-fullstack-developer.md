@@ -5,11 +5,12 @@ company: 'TKP Pensioen'
 job-title: 'Full-Stack Developer'
 ---
 
-Full-stack developer in one of the DevOps scrum teams of the Digitale Dienstverlening Deelnemers (DDD) programme — a multi-tenant web platform with fund-specific implementations where participants manage their pension online.
+Fullstack developer in een van de DevOps-teams van het programma Digitale Dienstverlening Deelnemers (DDD): een multi-tenant webplatform met fonds specifieke implementaties waarop deelnemers online hun pensioen regelen.
 
-**Results**
+#### Resultaten
 
-- First delivery of the "Beleggingswijzer" for determining a participant's risk profile.
-- Implemented digital signing with DigiD.
-- Delivered the task management feature for new participants.
-- Performed multiple Angular version migrations, alongside building RESTful microservices in Java and Spring Boot.
+- Online beleggingswijzer waarmee pensioendeelnemers op basis van ingevoerde gegevens hun risicoprofiel bepalen, in Angular en Spring Boot.
+- Aansluiting op DigiD voor het digitaal ondertekenen van een pensioenaanvraag.
+- Onboarding module "Openstaande taken" waarin nieuwe deelnemers een onboardingproces doorlopen, met een betere onboardingervaring als resultaat.
+- PDF-exportfunctionaliteit voor gegenereerde documenten binnen het deelnemersportaal.
+- Monitoring van productie omgevingen en acteren op incidenten.

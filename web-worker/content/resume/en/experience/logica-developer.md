@@ -5,4 +5,4 @@ company: 'Logica'
 job-title: 'Developer & Consultant'
 ---
 
-Worked as a Java and Adobe Flex developer for clients including KPN, ING Bank and EDSN.
+Java en Adobe Flex-developer voor klanten KPN, ING Bank en Energie Data Services Nederland.

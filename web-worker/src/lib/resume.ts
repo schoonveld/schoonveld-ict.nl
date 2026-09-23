@@ -2,6 +2,22 @@ import { getCollection, render } from "astro:content";
 
 import { getUiTranslations } from "@/lib/i18n";
 
+export const skills = [
+	"Java",
+	"Spring",
+	"Angular",
+	"React",
+	"TypeScript",
+	"GraphQL",
+	"Gradle",
+	"Maven",
+	"Git",
+	"Docker",
+	"Kubernetes",
+	"Helm",
+	"PostgreSQL",
+];
+
 const parseDate = (value: string) =>
 	value.toLowerCase() === "present" ? Date.now() : Date.parse(value);
 

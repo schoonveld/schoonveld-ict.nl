@@ -1,13 +1,13 @@
 ---
 from: 'October 2015'
-until: 'February 2017'
+until: 'June 2017'
 company: 'Dienst Uitvoering Onderwijs'
 job-title: 'Java Developer'
 ---
 
-As senior Java developer in the MTHV unit I was responsible for building and modernising the standard Java components, based on the Spring framework, that project teams use to develop software according to the DUO standard.
+Als Senior Java-developer verantwoordelijk voor het bouwen en moderniseren van de standaard Java-componenten, gebaseerd, waarmee teams software ontwikkelen op basis van het Spring Boot-framework.
 
-**Results**
+#### Results
 
-- Extended the Spring component library and coached DevOps teams in using it.
-- Led vendor selection, purchase and implementation of HP Fortify for Static Application Security Testing (SAST) in the build pipeline, together with the IT security department.
+- Implementeerde SAST met HP Fortify wat teams in staat stelt security scans uit te voeren in de CI/CD-pipeline.
+- Begeleidde team zakelijke diensten bij de opzet van het Zaakdossier.
