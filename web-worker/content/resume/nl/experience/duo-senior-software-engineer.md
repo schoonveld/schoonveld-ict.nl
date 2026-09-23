@@ -2,15 +2,14 @@
 from: 'May 2024'
 until: 'June 2025'
 company: 'Dienst Uitvoering Onderwijs'
-job-title: 'Senior Software Engineer — Portals'
+job-title: 'Senior Software Engineer'
 ---
 
-Within DUO, the Portals team is responsible for developing and maintaining the portals that expose DUO's services to its different user groups.
+Voor de Dienst Uitvoering Onderwijs (DUO) als Senior Software Engineer in het team 'portalen' heb ik gewerkt aan de (door)ontwikkeling van componenten en micro-services binnen de online DUO infrastructuur.
 
-As a Senior Software Engineer I was responsible for developing functionality around authentication, authorisation and user management within the DUO portals, and for migrating microservices to Spring Boot 3 and the new OpenShift-based CD platform.
+**Resultaten**
 
-**Results**
-
-- Migration and further development of the authorisation service (LogT).
-- Phased out LogX, a legacy API for retrieving user context, replacing it with Spring Security.
-- Provided input and advice for the transition of the authorisation component to the OAuth2 standard.
+- Implementatie van nieuwe functionaliteiten t.b.v. particuliere en zakelijk klanten.
+- Spring Boot 3 & 4 versie migraties van micro-services.
+- Migratie van micro-services naar OpenShift(Kubernetes).
+- Analyses en advies mbt de invoer van OpenID Connect en Spring Security OAuth2, ter vervanging van huidige Authenticatie en Autorisatie oplossing.
